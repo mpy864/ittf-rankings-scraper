@@ -8,6 +8,7 @@ import requests
 import re
 import unicodedata
 import pandas as pd
+import os  
 from bs4 import BeautifulSoup, Tag
 from tqdm import tqdm
 from urllib.parse import urljoin
@@ -140,7 +141,13 @@ full_df["Association"] = (
 )
 
 # 6) Merge into a new master file
-old_df = pd.read_csv("ITTF_World_Rankings_2021-2025.csv")
+
+old_file = "ITTF_World_Rankings_2021-2025.csv"
+if os.path.exists(old_file):
+    old_df = pd.read_csv(old_file)
+else:
+    old_df = pd.DataFrame(columns=full_df.columns)
+
 combined = pd.concat([full_df, old_df], ignore_index=True)
 combined.to_csv("ITTF_World_Rankings_2021-2025_updated.csv",
                 index=False)
