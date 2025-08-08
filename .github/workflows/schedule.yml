@@ -34,3 +34,9 @@ jobs:
             ITTF_World_Rankings_2021-2025_updated.csv
             ITTF_Master_Rankings.xlsx
 
+- name: Upload to Google Sheets
+  run: python upload_to_gsheet.py
+  env:
+    GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+    SPREADSHEET_ID: "1V4y_Uf8H4_dprZCDb0hxCuegY5XW1vwL"
+    SHEET_NAME: "Rankings"
