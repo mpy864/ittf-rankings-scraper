@@ -2,12 +2,18 @@ name: Weekly ITTF Rankings Update
 
 on:
   schedule:
-    - cron:  '0 9 * * MON'
+    - cron: '0 9 * * MON'
   workflow_dispatch:
 
 jobs:
   scrape-and-commit:
     runs-on: ubuntu-latest
+
+    # <<–– job-level environment ––>>
+    env:
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      SPREADSHEET_ID: "1gCCpQHxpd9oaqymeuOevn0VH_HbbnHu_lDOwqiRZwRU"
+      SHEET_NAME: "Rankings"
 
     steps:
       - name: Check out repo
@@ -36,7 +42,3 @@ jobs:
 
       - name: Upload to Google Sheets
         run: python upload_to_gsheet.py
-        env:
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-          SPREADSHEET_ID: "1gCCpQHxpd9oaqymeuOevn0VH_HbbnHu_lDOwqiRZwRU"
-          SHEET_NAME: "Rankings"
