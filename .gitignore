@@ -1,3 +1,8 @@
 *.csv
 *.xlsx
 __pycache__/
+
+*.csv
+*.xlsx
+
+!ITTF_World_Rankings_2021-2025_updated.csv
