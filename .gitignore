@@ -6,3 +6,4 @@ __pycache__/
 *.xlsx
 !ITTF_Master_Rankings.xlsx
 !ITTF_World_Rankings_2021-2025_updated.csv
+.DS_Store
