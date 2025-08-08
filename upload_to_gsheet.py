@@ -9,8 +9,6 @@ SPREADSHEET_ID = os.environ.get("1V4y_Uf8H4_dprZCDb0hxCuegY5XW1vwL")
 SHEET_NAME = os.environ.get("Rankings")
 CREDENTIALS_JSON = os.environ.get("github-bot@ittf-rankings-468409.iam.gserviceaccount.com")
 
-if CREDENTIALS_JSON is None:
-    raise Exception("github-bot@ittf-rankings-468409.iam.gserviceaccount.com")
 
 creds_dict = json.loads(CREDENTIALS_JSON)
 creds = Credentials.from_service_account_info(
