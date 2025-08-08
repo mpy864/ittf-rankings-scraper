@@ -6,8 +6,6 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 # Read environment variables
-SPREADSHEET_ID = os.environ["SPREADSHEET_ID"]
-SHEET_NAME      = os.environ["SHEET_NAME"]
 CREDENTIALS_JSON = os.environ["GOOGLE_SERVICE_ACCOUNT_JSON"]
 
 # Parse service‐account creds
